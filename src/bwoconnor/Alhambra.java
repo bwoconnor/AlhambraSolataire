@@ -45,9 +45,15 @@ public class Alhambra extends Solitaire {
 		IntegerView scoreView;
 		IntegerView numLeftView;
 		
+		public int deckFlips = 0;
+		public int numInWaste = 0;
 		public Alhambra() {
 			super();
 		}
+	
+	public int DeckFlips(){
+		return deckFlips;
+	}
 
 	@Override
 	public String getName() {
