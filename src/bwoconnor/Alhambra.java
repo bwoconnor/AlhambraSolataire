@@ -133,7 +133,7 @@ public class Alhambra extends Solitaire {
 			}
 		}
 		updateScore(0);
-		updateNumberCardsLeft (96);
+		updateNumberCardsLeft (64);
 	}
 
 	private void initializeControllers() {

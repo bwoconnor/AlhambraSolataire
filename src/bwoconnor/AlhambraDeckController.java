@@ -30,22 +30,24 @@ public class AlhambraDeckController extends SolitaireReleasedAdapter {
 	
 	/**
 	 * Coordinate reaction to the beginning of a Drag Event. In this case,
-	 * no drag is ever achieved, and we simply deal upon the pres.
+	 * no drag is ever achieved, and we simply deal upon the press.
 	 */
 	public void mousePressed (java.awt.event.MouseEvent me) {
 		Move m1 = new ReconstituteDeckMove(deck, wastePile, theGame.deckFlips, theGame.numInWaste);
 		if(m1.doMove(theGame)){
 			theGame.updateNumberCardsLeft(theGame.numInWaste);
 			theGame.numInWaste = 0;
+			theGame.deckFlips++;
 			theGame.pushMove (m1);
 			theGame.refreshWidgets();
-		}
+		}else{
 		// Attempting a DealCardMove
 		Move m2 = new DealCardMove (deck, wastePile);
 		if (m2.doMove(theGame)) {
 			theGame.numInWaste++;
 			theGame.pushMove (m2);     // Successful DealFour Move
 			theGame.refreshWidgets(); // refresh updated widgets.
+		}
 		}
 	}
 }

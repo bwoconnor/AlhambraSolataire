@@ -24,26 +24,24 @@ public class ReconstituteDeckMove extends Move{
 	@Override
 	public boolean doMove(Solitaire game) {
 		if(!valid(game)) {return false;}
-		if(deck.empty() && deckFlips<=3){
-			for(int i = num; i < num; i++){
-				c = pile.get();
-				deck.add(c);
-			}
-			return true;
+		for(int i = 0; i < num; i++){
+			c = pile.get();
+			deck.add(c);
 		}
-		return false;
-	}
+		return true;
+		}
 
 	@Override
+	//undo is not allowed for the reconstituting of the deck
 	public boolean undo(Solitaire game) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
 	public boolean valid(Solitaire game) {
-		// TODO Auto-generated method stub
-		return true;
+		return(deck.empty() && deckFlips<3);
+
 	}
 
 }
