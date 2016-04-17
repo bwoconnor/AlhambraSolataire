@@ -20,6 +20,7 @@ import ks.launcher.Main;
 
 public class Alhambra extends Solitaire {
 
+	
 		Deck deck;
 		Pile reserve[] = new Pile[8];
 		Pile wastePile;
@@ -46,7 +47,6 @@ public class Alhambra extends Solitaire {
 		IntegerView numLeftView;
 		
 		public int deckFlips = 0;
-		public int numInWaste = 0;
 		public Alhambra() {
 			super();
 		}
@@ -140,6 +140,42 @@ public class Alhambra extends Solitaire {
 		deckView.setMouseAdapter(new AlhambraDeckController (this, deck, wastePile));
 		deckView.setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
 		deckView.setUndoAdapter (new SolitaireUndoAdapter(this));
+		
+		wastePileView.setMouseAdapter(new AlhambraWastePileController(this, wastePileView));
+		wastePileView.setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
+		wastePileView.setUndoAdapter (new SolitaireUndoAdapter(this));
+		
+		aceSpadeView.setMouseAdapter(new AlhambraFoundationController(this, aceSpadeView));
+		aceSpadeView.setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
+		aceSpadeView.setUndoAdapter (new SolitaireUndoAdapter(this));
+
+		aceClubView.setMouseAdapter(new AlhambraFoundationController (this, aceClubView));
+		aceClubView.setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
+		aceClubView.setUndoAdapter (new SolitaireUndoAdapter(this));
+		
+		aceDiamondView.setMouseAdapter(new AlhambraFoundationController (this, aceDiamondView));
+		aceDiamondView.setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
+		aceDiamondView.setUndoAdapter (new SolitaireUndoAdapter(this));
+		
+		aceHeartView.setMouseAdapter(new AlhambraFoundationController (this, aceHeartView));
+		aceHeartView.setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
+		aceHeartView.setUndoAdapter (new SolitaireUndoAdapter(this));
+		
+		kingSpadeView.setMouseAdapter(new AlhambraFoundationController (this, kingSpadeView));
+		kingSpadeView.setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
+		kingSpadeView.setUndoAdapter (new SolitaireUndoAdapter(this));
+		
+		kingClubView.setMouseAdapter(new AlhambraFoundationController (this, kingClubView));
+		kingClubView.setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
+		kingClubView.setUndoAdapter (new SolitaireUndoAdapter(this));
+		
+		kingDiamondView.setMouseAdapter(new AlhambraFoundationController (this, kingDiamondView));
+		kingDiamondView.setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
+		kingDiamondView.setUndoAdapter (new SolitaireUndoAdapter(this));
+		
+		kingHeartView.setMouseAdapter(new AlhambraFoundationController (this, kingHeartView));
+		kingHeartView.setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
+		kingHeartView.setUndoAdapter (new SolitaireUndoAdapter(this));
 		
 	}
 

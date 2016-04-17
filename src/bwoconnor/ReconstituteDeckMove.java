@@ -14,11 +14,11 @@ public class ReconstituteDeckMove extends Move{
 	Card c;
 	int num;
 	
-	public ReconstituteDeckMove(Deck deck, Pile pile,int deckflips, int numInWaste){
+	public ReconstituteDeckMove(Deck deck, Pile pile,int deckflips){
 		this.deck = deck;
 		this.pile = pile;
 		this.deckFlips = deckflips;
-		this.num = numInWaste;
+		this.num = pile.count();
 	}
 	
 	@Override
