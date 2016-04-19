@@ -11,39 +11,35 @@ import ks.common.model.Pile;
  * Move card from wastePile to the top of an aceFoundationPile.
  */
 
-public class WasteToKingMove extends Move {
+public class ReserveToWasteMove extends Move {
 	Pile from;
 	Card cardBeingDragged;
-	Pile foundation;
+	Pile waste;
 	
-	public WasteToKingMove(Pile from, Card cardBeingDragged, Pile to){
+	public ReserveToWasteMove(Pile from, Card cardBeingDragged, Pile to){
 		this.from = from;
 		this.cardBeingDragged = cardBeingDragged;
-		this.foundation = to;
+		this.waste = to;
 	}
 
 	@Override
 	public boolean doMove(Solitaire game) {
 		if(!valid(game)) {return false;}
-		foundation.add(cardBeingDragged);
-		game.updateScore(1);
+		waste.add(cardBeingDragged);
 		return true;
 	}
 
 	@Override
 	public boolean undo(Solitaire game) {
-		from.add(foundation.get());
-		game.updateScore(-1);
+		from.add(waste.get());
 		return true;
 	}
 
 	@Override
 	public boolean valid(Solitaire game) {
-		if((foundation.rank()-1) == cardBeingDragged.getRank()){
-			if(foundation.peek(0).getRank() == 13){
-				if(foundation.suit() == cardBeingDragged.getSuit()){
-					return true;
-				}
+		if(waste.suit() == cardBeingDragged.getSuit()){
+		if((waste.rank()-1) == cardBeingDragged.getRank() || (waste.rank()+1) == cardBeingDragged.getRank()){
+				return true;
 			}
 		}
 		//not a match

@@ -177,6 +177,11 @@ public class Alhambra extends Solitaire {
 		kingHeartView.setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
 		kingHeartView.setUndoAdapter (new SolitaireUndoAdapter(this));
 		
+		for(int i = 0; i<8;i++){
+			reserveView[i].setMouseAdapter(new AlhambraReserveController (this, reserveView[i]));
+			reserveView[i].setMouseMotionAdapter (new SolitaireMouseMotionAdapter(this));
+			reserveView[i].setUndoAdapter (new SolitaireUndoAdapter(this));
+		}
 	}
 
 	private void initializeView() {

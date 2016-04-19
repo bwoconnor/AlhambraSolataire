@@ -12,12 +12,12 @@ import ks.common.model.Pile;
  */
 
 public class WasteToAceMove extends Move {
-	Pile wastePile;
+	Pile from;
 	Card cardBeingDragged;
 	Pile foundation;
 	
 	public WasteToAceMove(Pile from, Card cardBeingDragged, Pile to){
-		this.wastePile = from;
+		this.from = from;
 		this.cardBeingDragged = cardBeingDragged;
 		this.foundation = to;
 	}
@@ -32,14 +32,13 @@ public class WasteToAceMove extends Move {
 
 	@Override
 	public boolean undo(Solitaire game) {
-		wastePile.add(foundation.get());
+		from.add(foundation.get());
 		game.updateScore(-1);
 		return true;
 	}
 
 	@Override
 	public boolean valid(Solitaire game) {
-		if(wastePile.empty()){return false;}
 		if(foundation.suit() == cardBeingDragged.getSuit() && foundation.rank()+1 == cardBeingDragged.getRank() && foundation.peek(0).isAce()){
 			return true;
 		}
