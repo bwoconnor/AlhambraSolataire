@@ -11,12 +11,12 @@ import ks.common.model.Pile;
  * Move card from wastePile to the top of an aceFoundationPile.
  */
 
-public class WasteToKingMove extends Move {
+public class PileToKingMove extends Move {
 	Pile from;
 	Card cardBeingDragged;
 	Pile foundation;
 	
-	public WasteToKingMove(Pile from, Card cardBeingDragged, Pile to){
+	public PileToKingMove(Pile from, Card cardBeingDragged, Pile to){
 		this.from = from;
 		this.cardBeingDragged = cardBeingDragged;
 		this.foundation = to;

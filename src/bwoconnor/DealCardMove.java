@@ -22,6 +22,7 @@ public class DealCardMove extends Move {
 		
 		Card card = deck.get();
 		pile.add(card);
+		game.updateNumberCardsLeft(-1);
 		return true;
 	}
 

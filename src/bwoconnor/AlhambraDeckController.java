@@ -43,8 +43,8 @@ public class AlhambraDeckController extends SolitaireReleasedAdapter {
 		// Attempting a DealCardMove
 		Move m2 = new DealCardMove (deck, wastePile);
 		if (m2.doMove(theGame)) {
-			theGame.pushMove (m2);     // Successful DealFour Move
-			theGame.refreshWidgets(); // refresh updated widgets.
+			theGame.pushMove (m2);     
+			theGame.refreshWidgets(); 
 		}
 		}
 	}

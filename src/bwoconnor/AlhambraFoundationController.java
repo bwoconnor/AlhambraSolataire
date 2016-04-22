@@ -69,12 +69,12 @@ public class AlhambraFoundationController extends java.awt.event.MouseAdapter {
 		CardView cardView = (CardView) draggingWidget;
 		Card theCard = (Card) cardView.getModelElement();
 
-		Move move = new WasteToKingMove(srcPile, theCard, foundation);
+		Move move = new PileToKingMove(srcPile, theCard, foundation);
 		if (move.doMove(theGame)) {
 			theGame.pushMove(move);
 			theGame.refreshWidgets();
 		} else {
-			move = new WasteToAceMove(srcPile, theCard, foundation);
+			move = new PileToAceMove(srcPile, theCard, foundation);
 			if (move.doMove(theGame)) {
 				theGame.pushMove(move);
 				theGame.refreshWidgets();

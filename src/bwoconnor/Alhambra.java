@@ -1,18 +1,14 @@
 package bwoconnor;
 
-import heineman.Klondike;
-import heineman.klondike.KlondikeDeckController;
+
 import ks.common.controller.SolitaireMouseMotionAdapter;
 import ks.common.games.Solitaire;
 import ks.common.games.SolitaireUndoAdapter;
 import ks.common.model.Card;
-import ks.common.model.Column;
 import ks.common.model.Deck;
 import ks.common.model.MultiDeck;
 import ks.common.model.Pile;
-import ks.common.view.BuildablePileView;
 import ks.common.view.CardImages;
-import ks.common.view.ColumnView;
 import ks.common.view.DeckView;
 import ks.common.view.IntegerView;
 import ks.common.view.PileView;
@@ -62,7 +58,8 @@ public class Alhambra extends Solitaire {
 
 	@Override
 	public boolean hasWon() {
-		return false;
+		
+		return getScore().getValue() == 96;
 	}
 
 	@Override
@@ -124,7 +121,6 @@ public class Alhambra extends Solitaire {
 		for(int i = 0; i<96; i++){
 			deck.add(temp[i]);
 		}
-		deck.shuffle(10);
 		
 		for(int i =0; i<8; i++){
 			for(int k = 0; k<4; k++){

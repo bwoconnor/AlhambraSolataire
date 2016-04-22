@@ -37,6 +37,7 @@ public class ReserveToWasteMove extends Move {
 
 	@Override
 	public boolean valid(Solitaire game) {
+		if(waste.empty()){return false;}
 		if(waste.suit() == cardBeingDragged.getSuit()){
 		if((waste.rank()-1) == cardBeingDragged.getRank() || (waste.rank()+1) == cardBeingDragged.getRank()){
 				return true;
